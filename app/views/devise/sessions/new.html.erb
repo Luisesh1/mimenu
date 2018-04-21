@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col s12 m10 l6 offset-m1 offset-l3">
+    <div class="card-panel">
+      <h2 class="center-align">Iniciar sesión</h2>
+      <div class="center-align">
+        <i class="large material-icons ">assignment_ind</i>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div >
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+      
+        <div class="">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+      
+        <% if devise_mapping.rememberable? -%>
+          <div class="">
+            <p>
+              <label>
+                <%= f.check_box :remember_me %>
+                <span>Recordar</span>
+              </label>
+            </p>
+          </div>
+        <% end -%>
+      
+        <div class="actions">
+          <%= f.submit "Iniciar sesión",class:"waves-effect waves-light btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>

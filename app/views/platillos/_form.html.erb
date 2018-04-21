@@ -1,0 +1,45 @@
+<div class="card-panel z-depth-4">
+    <div class="row">
+      <%= form_for(@platillo,validate: true ) do |f| %>
+        <% if @platillo.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@platillo.errors.count, "error") %> prohibited this platillo from being saved:</h2>
+      
+            <ul>
+            <% @platillo.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="col s12 m6 l4">
+          <%= f.label :nombre %><br>
+          <%= f.text_field :nombre%>
+        </div>
+        <div class="col s12 m6 l4">
+          <%= f.label :precio %><br>
+          <%= f.text_field :precio %>
+        </div>
+        <div class="input-field col s12 m6 l4">
+            <select class="icons">
+              <option value="" selected>Menu global</option>
+              <% @resturants_options.each do |res| %>
+                <option value="<%=res.id%>" data-icon="<%= res.avatar.mini%>"><%=res.nombre%></option>  
+              <% end %>
+            </select>
+            <label>Resturante</label>
+          </div>
+        <div class="col s12 m12 l12">
+          <%= f.label :descripcion %><br>
+          <%= f.text_area :descripcion %>
+        </div>
+        <div class="col s12 m12 l12">
+          <%= f.file_field :avatar %>
+        </div>
+        
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+  </div>
+</div>  

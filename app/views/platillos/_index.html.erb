@@ -1,0 +1,34 @@
+<div ng-controller = "platillos">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">search</i>
+      <input type="text" id="buscar_platillo" ng-model="busqueda" ng-change="buscar()">
+      <label for="buscar_platillo">Buscar</label>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Descripcion</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+        <tr ng-repeat = "platillo in tabla">
+          <td><img src="{{platillo.avatar_mini}}"></td>
+          <td>{{platillo.nombre }}</td>
+          <td>{{ platillo.precio }}</td>
+          <td>{{ platillo.descripcion }}</td>
+          <td> <a href = "{{platillo.show}}"> Ver</a></td>
+          <td><a href = "{{platillo.edit}}"> Editar</a></td>
+          <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="{{platillo.show}}">Eliminar</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>  
+  
+  
